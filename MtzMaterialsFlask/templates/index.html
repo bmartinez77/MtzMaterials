@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<section class="py-4 py-xl-5">
+    <div class="container">
+        <div class="text-center p-4 p-lg-5" style="background: #c6c6c6; height: 275.258px;">
+            <h1 class="fw-bold mb-4" id="scale-sensor" style="font-size: 50.88px;"> {{ gross }} </h1>
+            <a href="/createOrder" class="createBtn btn btn-primary fs-5 me-2 py-2 px-4" type="button">Create Order</a>
+            <a href="/viewOrders" class="viewBtn btn btn-light fs-5 py-2 px-4" type="button">View Orders</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+{% endblock %}

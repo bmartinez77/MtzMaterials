@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Create Order{% endblock %}
+
+<body class="bg-light">
+  {% block content %}
+
+  <div class="container">
+    <form method="POST">
+
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <label>Your Weight </label>
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Gross</h6>
+              </div>
+              <input id="" name="gross" class="text-muted" hidden>{{ gross }}</input>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Tare</h6>
+              </div>
+              <input name="tare" class="text-muted" hidden>{{ tare }}</input>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Net</h6>
+              </div>
+              <input name="net" class="text-muted" hidden>{{ net }}</input>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Tons</h6>
+              </div>
+              <input name="tons" class="text-muted" hidden>{{ tons }}</input>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Order Form</h4>
+
+          <div class="mb-3">
+            <label for="username">Truck ID:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" name="truckId" id="truckId" placeholder="Truck ID" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="truckCo">Truck Company:</label>
+            <input type="text" class="form-control" name="truckCo" id="truckCo" placeholder="Truck Company" required>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="customer">Customer:</label>
+            <input type="text" class="form-control" name="customer" id="customer" placeholder="Customer" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="address2">Job:</label>
+            <input type="text" class="form-control" name="job" id="job" placeholder="Job Name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="address2">Product</label>
+            <input type="text" class="form-control" name="product" id="product" placeholder="Product" required>
+          </div>
+
+          <button class="btn btn-success btn-lg btn-block" type="submit">Continue to Complete</button>
+          <a href="/" class="btn btn-danger btn-lg btn-block">Return Home</a>
+        </div>
+
+      </div>
+    </form>
+
+
+  </div>
+  {% endblock %}
+</body>
+
+</html>

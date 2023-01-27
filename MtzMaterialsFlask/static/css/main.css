@@ -1,0 +1,25 @@
+.createBtn {
+    color: rgb(0,0,0);
+    background: rgb(45,176,89);
+    border-style: solid;
+    border-color: rgb(0,0,0);
+}
+
+.createBtn:hover {
+    color: rgb(0,0,0);
+    background: rgb(90, 168, 116);
+    border-style: solid;
+    border-color: rgb(0,0,0);
+}
+
+.viewBtn {
+    background: rgb(95,175,255);
+    border-style: solid; 
+    border-color: var(--bs-btn-disabled-color);
+}
+
+.viewBtn:hover {
+    background: rgb(131, 188, 245);
+    border-style: solid; 
+    border-color: var(--bs-btn-disabled-color);
+}
