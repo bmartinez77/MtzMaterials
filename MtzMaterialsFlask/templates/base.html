@@ -26,7 +26,7 @@
 <body>
     <nav class="navbar navbar-light navbar-expand-md py-3" style="background: #c4c4c4;">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="/">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('index')}}">
                     <span>MTZ Materials</span>
                 </a>
                     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -36,36 +36,15 @@
                     <li class="nav-item"></li>
                 </ul>
                 <div class="d-none d-md-block">
-                    <a href="/createOrder" class="createBtn btn btn-primary fs-5 me-2 py-2 px-4" type="button">Create Order</a>
-                    <a href="/viewOrders" class="viewBtn btn btn-light fs-5 py-2 px-4" type="button">View Orders</a>
+                    <a href="{{ url_for('createOrder') }}" class="createBtn btn fs-5 me-2 py-2 px-4" type="button">Create Order</a>
+                    <a href="{{ url_for('viewOrders') }}" class="viewBtn btn fs-5 py-2 px-4" type="button">View Orders</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <br/>
-<script type="text/javascript">
 
-
-$(function() {
-    window.setInterval(function() {
-        loadData()
-    }, 2000)
-    function loadData() {
-        $.ajax({
-            url: "/live-data",
-            type: 'GET',
-            cache: false,
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                $("#scale-sensor").text(data)
-            }
-        });
-    }
-});
-
-</script>
 
     <div id="content">{% block content %}{% endblock %}</div>
 

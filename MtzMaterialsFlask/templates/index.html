@@ -6,14 +6,34 @@
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
 
+    $(function() {
+        window.setInterval(function() {
+            loadData()
+        }, 2000)
+        function loadData() {
+            $.ajax({
+                url: "/live-data",
+                type: 'GET',
+                cache: false,
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    $("#scale-sensor").text(data)
+                }
+            });
+        }
+    });
+
+</script>
 
 <section class="py-4 py-xl-5">
     <div class="container">
         <div class="text-center p-4 p-lg-5" style="background: #c6c6c6; height: 275.258px;">
             <h1 class="fw-bold mb-4" id="scale-sensor" style="font-size: 50.88px;"> {{ gross }} </h1>
-            <a href="/createOrder" class="createBtn btn btn-primary fs-5 me-2 py-2 px-4" type="button">Create Order</a>
-            <a href="/viewOrders" class="viewBtn btn btn-light fs-5 py-2 px-4" type="button">View Orders</a>
+            <a href="{{ url_for('createOrder') }}" class="createBtn btn fs-5 me-2 py-2 px-4" type="button">Create Order</a>
+            <a href="{{ url_for('viewOrders') }}" class="viewBtn btn fs-5 py-2 px-4" type="button">View Orders</a>
         </div>
     </div>
 </section>

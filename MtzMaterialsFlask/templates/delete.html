@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<section class="py-4 py-xl-5">
+    <div class="container">
+        <div class="text-center p-4 p-lg-5" style="background: #c6c6c6; height: 275.258px;">
+            <form action="{{ url_for('confirmDelete') }}" method="POST">
+
+
+                <h1>Are you sure you want to Delete Order: </h1> 
+                <input name="orderId" value="{{orderId}}" hidden/>
+                <h1>{{orderId}}</h1>
+                <input type="submit" class=" btn deleteBtn" value="Delete">
+
+                <a class="btn viewBtn" href="{{ url_for('viewOrders') }}">Cancel</a>
+                <br/>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+{% endblock %}

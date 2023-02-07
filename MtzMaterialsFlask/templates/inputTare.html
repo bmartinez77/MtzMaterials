@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<section class="py-4 py-xl-5">
+    <div class="container">
+        <div class="text-center p-4 p-lg-5" style="background: #c6c6c6; height: 275.258px;">
+            <form action="{{ url_for('createOrderForm') }}" method="GET">
+                <h1>Input Tare Weight</h1>
+                <input id="inTare" name="inTare" class="fw-bold mb-4" type="number" style="font-size: 50.88px;" required/>
+                <br/>
+                <input class="btn createBtn" type="submit" value="Continue">
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+{% endblock %}

@@ -5,9 +5,23 @@
     border-color: rgb(0,0,0);
 }
 
-.createBtn:hover {
+.createBtn:hover, .createBtn:active {
     color: rgb(0,0,0);
-    background: rgb(90, 168, 116);
+    background: rgb(90, 168, 116) !important;
+    border-style: solid;
+    border-color: rgb(0,0,0);
+}
+
+.deleteBtn {
+    color: rgb(0,0,0);
+    background: rgb(255, 60, 0);
+    border-style: solid;
+    border-color: rgb(0,0,0);
+}
+
+.deleteBtn:hover, .deleteBtn:active {
+    color: rgb(0,0,0);
+    background: rgb(255, 108, 63) !important;
     border-style: solid;
     border-color: rgb(0,0,0);
 }
@@ -15,11 +29,31 @@
 .viewBtn {
     background: rgb(95,175,255);
     border-style: solid; 
-    border-color: var(--bs-btn-disabled-color);
+    border-color: rgb(0,0,0);
 }
 
-.viewBtn:hover {
-    background: rgb(131, 188, 245);
+.viewBtn:hover, .viewBtn:active {
+    background: rgb(131, 188, 245) !important;
     border-style: solid; 
-    border-color: var(--bs-btn-disabled-color);
+    border-color: rgb(0,0,0);
 }
+
+.inputBox {
+    border: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.inputBoxEdit {
+    border: 2;
+    text-align: center;
+    overflow: hidden;
+
+}
+
+.viewAll {
+    max-width: 60%;
+    border: 2px solid black;
+
+}
+
