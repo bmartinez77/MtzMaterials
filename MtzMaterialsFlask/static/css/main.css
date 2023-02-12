@@ -1,3 +1,4 @@
+/* Create Button */
 .createBtn {
     color: rgb(0,0,0);
     background: rgb(45,176,89);
@@ -5,6 +6,7 @@
     border-color: rgb(0,0,0);
 }
 
+/* Create Button While Hovered & Active */
 .createBtn:hover, .createBtn:active {
     color: rgb(0,0,0);
     background: rgb(90, 168, 116) !important;
@@ -12,6 +14,7 @@
     border-color: rgb(0,0,0);
 }
 
+/* Delete Button */
 .deleteBtn {
     color: rgb(0,0,0);
     background: rgb(255, 60, 0);
@@ -19,6 +22,7 @@
     border-color: rgb(0,0,0);
 }
 
+/* Create Delete while Hovered & Active */
 .deleteBtn:hover, .deleteBtn:active {
     color: rgb(0,0,0);
     background: rgb(255, 108, 63) !important;
@@ -26,24 +30,28 @@
     border-color: rgb(0,0,0);
 }
 
+/* View Button */
 .viewBtn {
     background: rgb(95,175,255);
     border-style: solid; 
     border-color: rgb(0,0,0);
 }
 
+/* Create View while Hovered & Active */
 .viewBtn:hover, .viewBtn:active {
     background: rgb(131, 188, 245) !important;
     border-style: solid; 
     border-color: rgb(0,0,0);
 }
 
+/* Input text box */
 .inputBox {
     border: 0;
     text-align: center;
     overflow: hidden;
 }
 
+/* Input text box for edit page */
 .inputBoxEdit {
     border: 2;
     text-align: center;
@@ -51,6 +59,7 @@
 
 }
 
+/* Input text box Button */
 .viewAll {
     max-width: 60%;
     border: 2px solid black;

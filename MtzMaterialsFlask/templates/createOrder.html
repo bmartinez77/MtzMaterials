@@ -4,27 +4,34 @@
 <body class="bg-light">
   {% block content %}
 
+  <!-- Form used to Create Orders -->
   <div class="container">
     <form method="POST">
-
       <div class="row">
+        <!-- Weight Column -->
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <label>Your Weight </label>
           </h4>
           <ul class="list-group mb-3">
+
+            <!-- Gross -->
             <li class="list-group-item d-flex justify-content-between lh-lg">
               <div>
                 <h6 class="my-0">Gross</h6>
               </div>
               <input type="text" name="gross" class="text-muted inputBox" value="{{ gross }}" readonly></input>
             </li>
+
+            <!-- Tare -->
             <li class="list-group-item d-flex justify-content-between lh-lg">
               <div>
                 <h6 class="my-0">Tare</h6>
               </div>
               <input type="text" name="tare" class="text-muted inputBox" value="{{ tare }}" readonly></input>
             </li>
+
+            <!-- Net -->
             <li class="list-group-item d-flex justify-content-between lh-lg">
               <div>
                 <h6 class="my-0">Net</h6>
@@ -32,6 +39,7 @@
               <input type="text" name="net" class="text-muted inputBox" value="{{ net }}" readonly></input>
             </li>
 
+            <!-- Tons -->
             <li class="list-group-item d-flex justify-content-between lh-lg">
               <div>
                 <h6 class="my-0">Tons</h6>
@@ -41,9 +49,11 @@
           </ul>
         </div>
 
+        <!-- Order Columns -->
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Order Form</h4>
 
+          <!-- Truck ID -->
           <div class="mb-3">
             <label for="username">Truck ID:</label>
             <div class="input-group">
@@ -51,36 +61,37 @@
             </div>
           </div>
 
+          <!-- Truck Company -->
           <div class="mb-3">
             <label for="truckCo">Truck Company:</label>
             <input type="text" class="form-control" name="truckCo" id="truckCo" placeholder="Truck Company" required>
-
           </div>
 
+          <!-- Customer -->
           <div class="mb-3">
             <label for="customer">Customer:</label>
             <input type="text" class="form-control" name="customer" id="customer" placeholder="Customer" required>
           </div>
 
+          <!-- Job -->
           <div class="mb-3">
             <label for="address2">Job:</label>
             <input type="text" class="form-control" name="job" id="job" placeholder="Job Name" required>
           </div>
 
+          <!-- Product -->
           <div class="mb-3">
             <label for="address2">Product</label>
             <input type="text" class="form-control" name="product" id="product" placeholder="Product" required>
           </div>
 
-          
+          <!-- Submit Form -->
           <button class="btn btn-success btn-lg btn-block" type="submit">Continue to Complete</button>
+          <!-- Returns to Home -->
           <a href="/" class="btn btn-danger btn-lg btn-block">Return Home</a>
         </div>
-
       </div>
     </form>
-
-
   </div>
   {% endblock %}
 </body>

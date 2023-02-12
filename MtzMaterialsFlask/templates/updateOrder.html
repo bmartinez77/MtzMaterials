@@ -1,37 +1,42 @@
 {% extends "base.html" %}
 {% block title %}Create Order{% endblock %}
-
+<!-- Update Order Page -->
 <body class="bg-light">
   {% block content %}
 
   <div class="container">
+    <!-- Form -->
     <form action=" {{ url_for('updateOrder')}}" method="POST">
-
       <div class="row">
+
+        <!-- Weight Column -->
         <div class="col-md-4 order-md-2 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <label>Your Weight </label>
           </h4>
           <ul class="list-group mb-3">
+            <!-- Gross -->
             <li class="list-group-item d-flex justify-content-between lh-lg">
               <div>
                 <h6 class="my-0">Gross</h6>
               </div>
               <input type="text" name="gross" class="text-muted inputBoxEdit" value="{{ order.gross }}" ></input>
             </li>
+            <!-- Tare -->
             <li class="list-group-item d-flex justify-content-between lh-lg">
               <div>
                 <h6 class="my-0">Tare</h6>
               </div>
               <input type="text" name="tare" class="text-muted inputBoxEdit" value="{{ order.tare }}" ></input>
             </li>
+            <!-- Net -->
             <li class="list-group-item d-flex justify-content-between lh-lg">
               <div>
                 <h6 class="my-0">Net</h6>
               </div>
               <input type="text" name="net" class="text-muted inputBox" value="{{ order.net }}" readonly></input>
             </li>
-
+            <!-- Tons -->
             <li class="list-group-item d-flex justify-content-between lh-lg">
               <div>
                 <h6 class="my-0">Tons</h6>
@@ -40,50 +45,51 @@
             </li>
           </ul>
         </div>
-
+        
+        <!-- Order Column -->
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Order Form</h4>
-
+          <!-- Order ID -->
           <div class="mb-3">
             <label for="username">Order ID:</label>
-            <input type="text" class="form-control" name="orderId" id="orderId" value="{{ order.orderId }}" required>
+            <input type="text" class="form-control" name="orderId" id="orderId" value="{{ order.orderId }}" readonly required>
           </div>
-
+          <!-- Truck ID -->
           <div class="mb-3">
             <label for="username">Truck ID:</label>
             <input type="text" class="form-control" name="truckId" id="truckId" value="{{ order.truckId }}" required>
           </div>
-          
+          <!-- truck Company -->
           <div class="mb-3">
             <label for="truckCo">Truck Company:</label>
             <input type="text" class="form-control" name="truckCo" id="truckCo" value="{{ order.truckCo }}" required>
-
           </div>
 
+          <!-- Customer -->
           <div class="mb-3">
             <label for="customer">Customer:</label>
             <input type="text" class="form-control" name="customer" id="customer" value=" {{ order.customer }}" required>
           </div>
-
+          <!-- Job -->
           <div class="mb-3">
             <label for="address2">Job:</label>
             <input type="text" class="form-control" name="job" id="job" value=" {{ order.job }}" required>
           </div>
-
+          <!-- Product -->
           <div class="mb-3">
             <label for="address2">Product</label>
             <input type="text" class="form-control" name="product" id="product" value="{{ order.product }}" required>
           </div>
 
-          
+          <!-- Submit Button -->
           <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
+
+          <!-- Cancel Button -->
           <a href="/viewOrders" class="btn btn-danger btn-lg btn-block">Cancel</a>
         </div>
 
       </div>
     </form>
-
-
   </div>
   {% endblock %}
 </body>

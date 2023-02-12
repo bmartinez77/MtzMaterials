@@ -8,114 +8,119 @@
 {% block content %}
 
 <div class="content">
-  {% if orderList|length < 1 %}
-  <section class="py-4 py-xl-5">
+  <!-- If orders Dont exist, display message and button to main page -->
+  {% if orderList|length < 1 %} <section class="py-4 py-xl-5">
     <div class="container">
-        <div class="text-center p-4 p-lg-5" style="background: #c6c6c6; height: 275.258px;">
-          <h1 style="text-align: center">There are no Orders. Create one below!</h1>
-          <br/>
-          <a class="btn createBtn" href="{{url_for("createOrder")}}"> Create New Order</a>
-        </div>
-    </div>
-</section>
-
-  {% else %}
-      {% for order in orderList %}
-      
-      <div class="container viewAll">
-          <div class="row">
-            <div class="col-md-4 order-md-2 mb-4">
-              <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <label>Weight</label>
-              </h4>
-              <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-lg">
-                  <div>
-                    <h6 class="my-0">Gross</h6>
-                  </div>
-                  <input type="text" name="gross" class="text-muted inputBox" value="{{ order.gross }}" readonly></input>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-lg">
-                  <div>
-                    <h6 class="my-0">Tare</h6>
-                  </div>
-                  <input type="text" name="tare" class="text-muted inputBox" value="{{ order.tare }}" readonly></input>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-lg">
-                  <div>
-                    <h6 class="my-0">Net</h6>
-                  </div>
-                  <input type="text" name="net" class="text-muted inputBox" value="{{ order.net }}" readonly></input>
-                </li>
-    
-                <li class="list-group-item d-flex justify-content-between lh-lg">
-                  <div>
-                    <h6 class="my-0">Tons</h6>
-                  </div>
-                  <input type="text" name="tons" class="text-muted inputBox" value="{{ order.tons }}" readonly></input>
-                </li>
-              </ul>
-              <div class="mb-3">
-
-
-                <form action="/viewOneOrder/{{ order.orderId }}" method="POST">
-                    <input type="submit" class="btn viewBtn" value="Edit">
-                </form>
-              </div>   
-              <div class="mb-3">
-                <form action="/deleteOrder/{{ order.orderId }}" method="POST">
-                    <input type="submit" class="btn deleteBtn" value="Delete">
-                </form>
-              </div>              
-            </div>
-    
-            <div class="col-md-8 order-md-1">
-              <h4 class="mb-3">Order Form</h4>
-    
-              <div class="mb-3">
-                  <label for="username">Order ID:</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" name="truckId" id="truckId" value="{{ order.orderId }}" readonly>
-                  </div>
-                </div>   
-                <div class="mb-3">
-                  <label for="username">Truck ID:</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" name="truckId" id="truckId" value="{{ order.truckId }}" readonly>
-                  </div>
-                </div>
-    
-              <div class="mb-3">
-                <label for="truckCo">Truck Company:</label>
-                <input type="text" class="form-control" name="truckCo" id="truckCo" value="{{ order.truckCo }}" readonly>
-    
-              </div>
-    
-              <div class="mb-3">
-                <label for="customer">Customer:</label>
-                <input type="text" class="form-control" name="customer" id="customer" value="{{ order.customer }}" readonly>
-              </div>
-    
-              <div class="mb-3">
-                <label for="address2">Job:</label>
-                <input type="text" class="form-control" name="job" id="job" value="{{ order.job }}" readonly>
-              </div>
-    
-              <div class="mb-3">
-                <label for="address2">Product</label>
-                <input type="text" class="form-control" name="product" id="product" value="{{ order.product }}" readonly>
-              </div>
-            </div>
-            
-
-          <!-- <form action="/viewOne/{{ order.orderId }}/delete" method="post">
-              <input type="submit" value="Delete">
-          </form> -->
-          </div>
+      <div class="text-center p-4 p-lg-5" style="background: #c6c6c6; height: 275.258px;">
+        <h1 style="text-align: center">There are no Orders. Create one below!</h1>
+        <br />
+        <a class="btn createBtn" href="{{url_for("createOrder")}}"> Create New Order</a>
       </div>
-      <br>
-      {% endfor %}
-  {% endif %}
+    </div>
+    </section>
+    {% else %}
+
+    {% for order in orderList %}
+    <!-- Display Each Order -->
+    <div class="container viewAll">
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <label>Weight</label>
+          </h4>
+          <ul class="list-group mb-3">
+            <!-- Gross -->
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Gross</h6>
+              </div>
+              <input type="text" name="gross" class="text-muted inputBox" value="{{ order.gross }}" readonly></input>
+            </li>
+            <!-- Tare -->
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Tare</h6>
+              </div>
+              <input type="text" name="tare" class="text-muted inputBox" value="{{ order.tare }}" readonly></input>
+            </li>
+            <!-- Net -->
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Net</h6>
+              </div>
+              <input type="text" name="net" class="text-muted inputBox" value="{{ order.net }}" readonly></input>
+            </li>
+            <!-- Tons -->
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Tons</h6>
+              </div>
+              <input type="text" name="tons" class="text-muted inputBox" value="{{ order.tons }}" readonly></input>
+            </li>
+          </ul>
+          <div class="mb-3">
+
+            <!-- View One Order -->
+            <form action="/viewOneOrder/{{ order.orderId }}" method="POST">
+              <input type="submit" class="btn viewBtn" value="Edit">
+            </form>
+          </div>
+          <!-- Delete Order -->
+          <div class="mb-3">
+            <form action="/deleteOrder/{{ order.orderId }}" method="POST">
+              <input type="submit" class="btn deleteBtn" value="Delete">
+            </form>
+          </div>
+        </div>
+
+        <!-- Order Form -->
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Order Form</h4>
+          <!-- Order ID -->
+          <div class="mb-3">
+            <label for="username">Order ID:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" name="truckId" id="truckId" value="{{ order.orderId }}" readonly>
+            </div>
+          </div>
+          <!-- Truck ID -->
+          <div class="mb-3">
+            <label for="username">Truck ID:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" name="truckId" id="truckId" value="{{ order.truckId }}" readonly>
+            </div>
+          </div>
+
+          <!-- Truck Company -->
+          <div class="mb-3">
+            <label for="truckCo">Truck Company:</label>
+            <input type="text" class="form-control" name="truckCo" id="truckCo" value="{{ order.truckCo }}" readonly>
+          </div>
+
+          <!-- Customer -->
+          <div class="mb-3">
+            <label for="customer">Customer:</label>
+            <input type="text" class="form-control" name="customer" id="customer" value="{{ order.customer }}" readonly>
+          </div>
+
+          <!-- Job -->
+          <div class="mb-3">
+            <label for="address2">Job:</label>
+            <input type="text" class="form-control" name="job" id="job" value="{{ order.job }}" readonly>
+          </div>
+
+          <!-- Product -->
+          <div class="mb-3">
+            <label for="address2">Product</label>
+            <input type="text" class="form-control" name="product" id="product" value="{{ order.product }}" readonly>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br>
+    {% endfor %}
+    {% endif %}
 </div>
 
 
