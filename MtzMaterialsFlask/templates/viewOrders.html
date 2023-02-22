@@ -10,11 +10,11 @@
 <div class="content">
   <!-- If orders Dont exist, display message and button to main page -->
   {% if orderList|length < 1 %} <section class="py-4 py-xl-5">
-    <div class="container">
-      <div class="text-center p-4 p-lg-5" style="background: #c6c6c6; height: 275.258px;">
-        <h1 style="text-align: center">There are no Orders. Create one below!</h1>
+    <div class="container-fluid">
+      <div class="text-center p-4 p-lg-5 weightBox" >
+        <h1>There are no Orders. Create one below!</h1>
         <br />
-        <a class="btn createBtn" href="{{url_for("createOrder")}}"> Create New Order</a>
+        <a class="btn createBtn fs-5 py-2 px-4 me-2" href="{{url_for("createOrder")}}"> Create New Order</a>
       </div>
     </div>
     </section>
@@ -24,54 +24,6 @@
     <!-- Display Each Order -->
     <div class="container viewAll">
       <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <label>Weight</label>
-          </h4>
-          <ul class="list-group mb-3">
-            <!-- Gross -->
-            <li class="list-group-item d-flex justify-content-between lh-lg">
-              <div>
-                <h6 class="my-0">Gross</h6>
-              </div>
-              <input type="text" name="gross" class="text-muted inputBox" value="{{ order.gross }}" readonly></input>
-            </li>
-            <!-- Tare -->
-            <li class="list-group-item d-flex justify-content-between lh-lg">
-              <div>
-                <h6 class="my-0">Tare</h6>
-              </div>
-              <input type="text" name="tare" class="text-muted inputBox" value="{{ order.tare }}" readonly></input>
-            </li>
-            <!-- Net -->
-            <li class="list-group-item d-flex justify-content-between lh-lg">
-              <div>
-                <h6 class="my-0">Net</h6>
-              </div>
-              <input type="text" name="net" class="text-muted inputBox" value="{{ order.net }}" readonly></input>
-            </li>
-            <!-- Tons -->
-            <li class="list-group-item d-flex justify-content-between lh-lg">
-              <div>
-                <h6 class="my-0">Tons</h6>
-              </div>
-              <input type="text" name="tons" class="text-muted inputBox" value="{{ order.tons }}" readonly></input>
-            </li>
-          </ul>
-          <div class="mb-3">
-
-            <!-- View One Order -->
-            <form action="/viewOneOrder/{{ order.orderId }}" method="POST">
-              <input type="submit" class="btn viewBtn" value="Edit">
-            </form>
-          </div>
-          <!-- Delete Order -->
-          <div class="mb-3">
-            <form action="/deleteOrder/{{ order.orderId }}" method="POST">
-              <input type="submit" class="btn deleteBtn" value="Delete">
-            </form>
-          </div>
-        </div>
 
         <!-- Order Form -->
         <div class="col-md-8 order-md-1">
@@ -115,6 +67,58 @@
             <input type="text" class="form-control" name="product" id="product" value="{{ order.product }}" readonly>
           </div>
         </div>
+
+        <!-- Weight Section -->
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <label>Weight</label>
+          </h4>
+          <ul class="list-group mb-3">
+            <!-- Gross -->
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Gross</h6>
+              </div>
+              <input type="text" name="gross" class="text-muted inputBox" value="{{ order.gross }}" readonly></input>
+            </li>
+            <!-- Tare -->
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Tare</h6>
+              </div>
+              <input type="text" name="tare" class="text-muted inputBox" value="{{ order.tare }}" readonly></input>
+            </li>
+            <!-- Net -->
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Net</h6>
+              </div>
+              <input type="text" name="net" class="text-muted inputBox" value="{{ order.net }}" readonly></input>
+            </li>
+            <!-- Tons -->
+            <li class="list-group-item d-flex justify-content-between lh-lg">
+              <div>
+                <h6 class="my-0">Tons</h6>
+              </div>
+              <input type="text" name="tons" class="text-muted inputBox" value="{{ order.tons }}" readonly></input>
+            </li>
+          </ul>
+          <div class="mb-3">
+
+            <!-- View One Order -->
+            <form action="/viewOneOrder/{{ order.orderId }}" method="POST">
+              <input type="submit" class="btn viewBtn fs-5 me-2 py-2 px-4 d-grid gap-2" value="Edit">
+            </form>
+          </div>
+          <!-- Delete Order -->
+          <div class="mb-3">
+            <form action="/deleteOrder/{{ order.orderId }}" method="POST">
+              <input type="submit" class="btn deleteBtn fs-5 py-2 px-4 me-2 d-grid gap-2" value="Delete">
+            </form>
+          </div>
+        </div>
+        <!-- End Weight Section -->
+        
 
       </div>
     </div>

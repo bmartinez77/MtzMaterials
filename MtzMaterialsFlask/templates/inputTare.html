@@ -9,21 +9,17 @@
 
 <!-- Page toinput the Tare weight, sends to create order page -->
 <section class="py-4 py-xl-5">
-    <div class="container">
-        <div class="text-center p-4 p-lg-5" style="background: #c6c6c6; height: 275.258px;">
+    <div class="container-fluid">
+        <div class="text-center p-4 p-lg-5 weightBox">
             <form action="{{ url_for('createOrderForm') }}" method="GET">
                 <h1>Input Tare Weight</h1>
                 <!-- Input Tare Textbox-->
-                <input id="inTare" name="inTare" class="fw-bold mb-4" type="number" style="font-size: 50.88px;" required/>
+                <input id="inTare" name="inTare" class="inputTareBox fw-bold mb-4" type="number" required/>
                 <br/>
-                <input class="btn createBtn" type="submit" value="Continue">
+                <input class="btn createBtn fs-5 py-2 px-4" type="submit" value="Continue">
             </form>
         </div>
     </div>
 </section>
-
-
-
-
 
 {% endblock %}

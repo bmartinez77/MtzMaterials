@@ -19,7 +19,7 @@ app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:root@localhost:3306/mtz-materials'
 
 # Connection String used for a sqlitte database.
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Orders.db'
 db.init_app(app)
 
 # allows database to be created
@@ -68,7 +68,7 @@ def createOrderForm():
                 # commit to database
                 db.session.commit()
                 # return home page
-                return render_template('index.html')
+                return redirect(url_for("index"))
             #General exception handler
             except Exception as e:
                 # print error
@@ -78,7 +78,6 @@ def createOrderForm():
         else:
             # Get method used to read Tare from previous page, tare page
             inTare = request.args.get("inTare")
-
             # converts message into a float
             tare = float(inTare)
             

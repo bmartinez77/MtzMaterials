@@ -56,13 +56,53 @@
     border: 2;
     text-align: center;
     overflow: hidden;
-
 }
 
 /* Input text box Button */
 .viewAll {
     max-width: 60%;
     border: 2px solid black;
+    padding: 15px;
+}
 
+.nav-item {
+    text-align: center;
+}
+
+button.navbar-toggler {
+    /* background-color: white; */
+    text-align: center;
+}
+
+.inputTareBox {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-size: 60px;
+}
+
+.weightBox{
+    background: #c6c6c6; 
+    height: 300px;
+}
+
+.grossTextSize {
+    font-size: 60px;
+}
+
+.nav {
+    background: #c4c4c4;
+}
+.footer {
+    /* padding-top: 10px; */
+    background: #c4c4c4;
+    /* position: fixed; */
+    /* bottom: 0; */
+    width: 100%;
+    height: 50px;
+
+}
+.content {
+    padding-bottom: 50px
 }
 
