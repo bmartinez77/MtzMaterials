@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Container to display th Weight and buttons to create order or view all orders-->
+<section class="py-4 py-xl-5">
+    <div class="container-fluid">
+        <form method="POST" action="{{url_for('input_tare')}}">
+        <h2 class="text-center">Serial Port Has been Disconnect, Please type in the Gross Weight</h2>
+        <div class="text-center p-4 p-lg-5 weightBox">
+                <!-- Displays Weight -->
+                <input class="fw-bold mb-4 inputTareBox" name="gross" id="gross"> </input>
+                <!-- Create Order Button-->
+                <br>
+                <button class="createBtn btn fs-5 me-2 py-2 px-4" type="submit">Create Order</button>
+                <!-- View Order Button-->
+                <a href="{{ url_for('view_orders') }}" class="viewBtn btn fs-5 py-2 px-4" type="button">View Orders</a>
+        </div>
+    </form>
+
+    </div>
+</section>
+
+{% endblock %}

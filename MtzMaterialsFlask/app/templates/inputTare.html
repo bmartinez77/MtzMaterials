@@ -11,12 +11,15 @@
 <section class="py-4 py-xl-5">
     <div class="container-fluid">
         <div class="text-center p-4 p-lg-5 weightBox">
-            <form action="{{ url_for('createOrderForm') }}" method="GET">
+            <form action="{{ url_for('create_order') }}" method="POST">
                 <h1>Input Tare Weight</h1>
+                <input id="gross" name="gross" class="inputTareBox fw-bold mb-4" type="number" value="{{gross}}" hidden required/>
                 <!-- Input Tare Textbox-->
-                <input id="inTare" name="inTare" class="inputTareBox fw-bold mb-4" type="number" required/>
+                <input id="tare" name="tare" class="inputTareBox fw-bold mb-4" type="number" required/>
                 <br/>
-                <input class="btn createBtn fs-5 py-2 px-4" type="submit" value="Continue">
+                <button class="createBtn btn fs-5 me-2 py-2 px-4" type="submit">Continue</button>
+                <a href="{{ url_for('index') }}" class="viewBtn btn fs-5 py-2 px-4" type="button">Cancel</a>
+
             </form>
         </div>
     </div>

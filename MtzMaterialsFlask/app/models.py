@@ -1,7 +1,8 @@
 # allows Decimals to be used for the objects and database
 # SQL Alchemy is ORM 
 from app import db
-from sqlalchemy import DECIMAL
+from sqlalchemy import DECIMAL, desc, asc
+
 
 # Database Model used to make orders throughout the web app
 class Orders(db.Model):

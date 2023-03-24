@@ -1,9 +1,9 @@
 /* Create Button */
 .createBtn {
     color: rgb(0,0,0);
-    background: rgb(45,176,89);
+    background: rgb(45,176,89) !important;
     border-style: solid;
-    border-color: rgb(0,0,0);
+    border-color: rgb(0,0,0) !important;
 }
 
 /* Create Button While Hovered & Active */
@@ -11,37 +11,38 @@
     color: rgb(0,0,0);
     background: rgb(90, 168, 116) !important;
     border-style: solid;
-    border-color: rgb(0,0,0);
+    border-color: rgb(0,0,0) !important;
 }
 
 /* Delete Button */
 .deleteBtn {
     color: rgb(0,0,0);
-    background: rgb(255, 60, 0);
+    background: rgb(255, 60, 0) !important;
     border-style: solid;
-    border-color: rgb(0,0,0);
+    border-color: rgb(0,0,0) !important;
 }
 
 /* Create Delete while Hovered & Active */
 .deleteBtn:hover, .deleteBtn:active {
-    color: rgb(0,0,0);
     background: rgb(255, 108, 63) !important;
     border-style: solid;
-    border-color: rgb(0,0,0);
+    border-color: rgb(0,0,0) !important;
 }
 
 /* View Button */
 .viewBtn {
-    background: rgb(95,175,255);
+    color: rgb(0,0,0);
+    background: rgb(95,175,255) !important;
     border-style: solid; 
-    border-color: rgb(0,0,0);
+    border-color: rgb(0,0,0) !important;
 }
 
 /* Create View while Hovered & Active */
 .viewBtn:hover, .viewBtn:active {
     background: rgb(131, 188, 245) !important;
     border-style: solid; 
-    border-color: rgb(0,0,0);
+    border-color: rgb(0,0,0) !important;
+
 }
 
 /* Input text box */
@@ -106,4 +107,15 @@ button.navbar-toggler {
     padding-bottom: 50px
 }
 
+input[readonly] {
+    background-color: white !important;
+}
 
+.inputGrossBox {
+    border: none;
+    background-color: #c4c4c4;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-size: 60px;
+  }

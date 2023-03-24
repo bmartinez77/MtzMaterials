@@ -9,10 +9,10 @@
 <!-- Method to read the weight from live-data(), updates the text -->
 <script type="text/javascript">
 
-    $(function() {
-        window.setInterval(function() {
+    $(function () {
+        window.setInterval(function () {
             loadData()
-        }, 2000)
+        }, 1000)
         function loadData() {
             $.ajax({
                 url: "/live-data",
@@ -21,7 +21,9 @@
                 dataType: "json",
                 success: function (data) {
                     console.log(data);
+                    $("#scale-sensor1").val(data)
                     $("#scale-sensor").text(data)
+
                 }
             });
         }
@@ -31,14 +33,22 @@
 
 <!-- Container to display th Weight and buttons to create order or view all orders-->
 <section class="py-4 py-xl-5">
+
     <div class="container-fluid">
         <div class="text-center p-4 p-lg-5 weightBox">
-            <!-- Displays Weight -->
-            <h1 class="fw-bold mb-4 grossTextSize" id="scale-sensor"> {{ gross }} </h1>
-            <!-- Create Order Button-->
-            <a href="{{ url_for('createOrder') }}" class="createBtn btn fs-5 me-2 py-2 px-4" type="button">Create Order</a>
-            <!-- View Order Button-->
-            <a href="{{ url_for('viewOrders') }}" class="viewBtn btn fs-5 py-2 px-4" type="button">View Orders</a>
+            <form method="POST" action="{{url_for('input_tare')}}">
+
+                <!-- Displays Weight -->
+                <!-- <h1 name="gross" class="fw-bold mb-4 grossTextSize" id="scale-sensor"> {{ gross }} </h1> -->
+                <input class="fw-bold mb-4 inputGrossBox" type="text" name="gross" id="scale-sensor1" readonly>
+
+                <!-- Create Order Button-->
+                <br>
+                <button type="submit" class="createBtn btn fs-5 me-2 py-2 px-4">Create Order</button>
+                <!-- View Order Button-->
+                <a href="{{ url_for('view_orders') }}" class="viewBtn btn fs-5 py-2 px-4" type="button">View Orders</a>
+            </form>
+
         </div>
     </div>
 </section>
