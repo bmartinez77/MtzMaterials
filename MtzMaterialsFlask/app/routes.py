@@ -200,26 +200,3 @@ def live_data():
     #submits number to page
     return response
 
-
-@app.route('/pdf/<int:orderId>')
-def pdf_template(orderId):
-    order = Orders.query.get(orderId)
-
-    rendered = render_template("pdfTemplate.html", order = order)
-
-    pdf = pdfkit.from_string(rendered, False)
-
-    response = make_response(pdf)
-    response.headers['Content-Type'] = 'application/pdf'
-    response.headers['Content-Disposition'] = 'inline; filename=output.pdf'
-
-    return response
-
-
-@app.route('/test/pdf/<int:orderId>')
-def pdf_test_template(orderId):
-    order = Orders.query.get(orderId)
-
-    return render_template("pdfTemplate.html", order = order)
-
-
