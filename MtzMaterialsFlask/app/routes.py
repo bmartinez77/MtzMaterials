@@ -1,6 +1,5 @@
 from flask import render_template, make_response, url_for, request, redirect, abort
 
-import pdfkit
 from app import app
 from app import cache
 
@@ -20,21 +19,38 @@ import random
 import serial
 import time
 
+# clear left over cache
 cache.clear()
 
+# initialize serial port
 ser = serial.Serial()
-while True:
-    try: 
-        ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1.0)
-        print("Successfully connected Serial.")
-        break
-    except serial.SerialException:
-        print("Could not connect to Serial. Try again.")       
-        time.sleep(1)
-        ser.close()
-        break
-    else:
-        print(ser)
+
+# method to set the serial port parameters
+def connect_serial():
+    # infinite loop
+    while True:
+        # try catch statement
+        try:
+            # set serial to global variable
+            global ser 
+            # serial port name and communication speed
+            ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1.0)
+            # Success print message
+            print("Successfully connected Serial.")
+            print(ser)
+            break
+            #  Serial ExceptionS
+        except serial.SerialException:
+            # Failed print messaye
+            print("Could not connect to Serial. Try again.")       
+            time.sleep(1)
+            break
+        else:
+            # print serial port parameters
+            print(ser)
+    
+# Connect Serial Port
+connect_serial()
 
 # Error handling for pages not found, 404 Error
 @app.errorhandler(404)
@@ -53,17 +69,14 @@ def serial_not_found(e):
 # Landing page used to display the weight from the scale
 @app.route("/")
 def index():
-    # calls the 
-    # if not ser.isOpen():
-    #     print("Serial port Has been disconnected")
-
-    #     abort(500)
-
+    # get data from scale, pass value to index page
     gross = live_data().json
     return render_template('index.html', gross = gross)
 
+# input tare page used for tare parameter
 @app.route("/inputTare", methods=['POST'])
 def input_tare():
+    # requests gross input from previous page, passes gross value
     gross = request.form['gross']
     return render_template('inputTare.html', gross = gross)
 
@@ -188,15 +201,30 @@ def confirm_delete():
 # Will be read from the Arduino Scale once implemented
 @app.route('/live-data')
 def live_data():
-    # if not ser.isOpen():
-    #     abort(500)
-    # generates a random number
-    data = random.randint(75000, 80000)
+    # clears memeory from serial port   
+    ser.reset_input_buffer()
+    # writes message to arduino
+    ser.write("on\n".encode('utf-8'))
     
-    # Makes random number into json format
-    response = make_response(json.dumps(data))
+    # reads response from arduino 
+    data = ser.readline().decode('utf-8').rstrip()
+ 
+    try:
+        # converst value to json format
+        data = json.loads(data)
+        # reads value from key
+        data = json.dumps(data["value"])
+        # converts to string to be displayed
+        data = str(data)
+    except json.JSONDecodeError:
+        data=0
+    except TypeError:
+        data = 0
+
+    # Makes response number into json format
+    response = make_response(data)
     response.content_type = 'application/json'
-    
+
     #submits number to page
     return response
 
