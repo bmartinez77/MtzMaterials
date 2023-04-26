@@ -50,6 +50,14 @@ The logical design explains a high level over view of the project. There are two
 User Interface and Site maps are used as a guide for the user to follow the layout and how to navigate through the pages within the web application.
 ![UI](https://user-images.githubusercontent.com/91274130/234450888-326a7b69-8c04-4662-88d4-6fa5aa883d7e.png)
 
+# Designing the circuit 
+A hand drawn schematic was made to outline which pins are connected to fron the arduino to the lcd, potentimeter and the HX711 module. This schematic is helpful when rewiring the circuit and building it on a perfboard.
+![IMG-4593](https://user-images.githubusercontent.com/91274130/234453673-d1ca4fac-2495-4a77-b5d5-20f2b08c8642.jpg)
+
+To build the circuit on the perfboard, I created a wire mapping diagram. To start this, I figured out how many holes were on the perfbard, multiplied holes in the rows and columns. Then counted the holes on a piece of grid paper and drew the box. The I wanted to see how the LCD screen and potentiometer needed to be placed to fit in a 3D printed box. Once I was happy with where it was, I marked the holes onto paper to remember where I need to solder the pins into place. 
+![IMG-4594](https://user-images.githubusercontent.com/91274130/234453957-2bae1141-6195-45d3-bcc8-17ec0c2f9eb0.jpg)
+
+
 # Building the Project
 A perf board was designed to fit inside of a #D printed box used to fit all of the components inside. The perfboard was built off of a breadboard prototype built from the circuit design.
 ![IMG_4487 HEIC](https://user-images.githubusercontent.com/91274130/234452461-1c86d9be-b1df-4012-8c1e-d991914d2c1d.png)
