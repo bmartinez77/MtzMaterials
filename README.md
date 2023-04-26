@@ -6,12 +6,11 @@ With a shortage of truck drivers, there is a high demand for transporting cargo.
 
 ## Technologies 
 The technologies that are implemented are Raspberry Pi, Arduino, Python(Flask, Jinja, SQLAlchemy), and SQLite. This project implements an MVC architecture.
-| Technology or Tool | Justification |
+| Technology or Tool | Version | Justification |
 | ------------- | ------------- |
-| Raspberry PI 4 Model B | Raspberry PI 4 Model B |
-| Raspberry Pi OS 64-bit | Debian Version: 11
-Since the application is running on a PI, a PI OS will be used to have a running system. | 
-| Python | Version: 3.9.9 Web Application will be created using python. |
+| Raspberry PI 4 | Model B | Raspberry Pi is used to hosut the web application |
+| Raspberry Pi OS 64-bit | Debian Version: 11 | Since the application is running on a PI, a PI OS will be used to have a running system. | 
+| Python | Version: 3.9.9 | Web Application will be created using python. |
 
 The technologies to create this project are Raspberry Pi, Arduino, Python, and SQLite. All of these technologies were new to me, I wanted to make a project that used multiple devices that communicate with one another such as the Arduino and the Raspberry Pi. I wanted to implement a physical sensor that is used to be displayed on a web application, where the user can see the change in real time.
 
