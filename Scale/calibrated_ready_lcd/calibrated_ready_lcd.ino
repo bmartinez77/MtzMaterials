@@ -24,7 +24,6 @@ LiquidCrystal lcd(6, 7, 10, 11, 12, 13);
 void setup() {
   // baud rate used for the communication speed
   Serial.begin(9600);
-
   // setting up scale pins 
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
   // set up the LCD's number of columns and rows: 
@@ -34,23 +33,27 @@ void setup() {
   // set cursor, where to start the message
   lcd.setCursor(0,0);
   // printing mesage on lcd screen
-  lcd.print("Calibrating Scale Please wait:");
+  lcd.print(" Calibrating Scale Please wait!");
+   for (int positionCounter = 0; positionCounter < 20; positionCounter++) {
+    lcd.scrollDisplayLeft(); // scroll one position left:
+    delay(450);              // wait a bit
+  }
   // setting calibration factor used to calibrate the scale. Value is from uncalibrated program            
-  scale.set_scale(-378.92);
+  scale.set_scale(88.175);
   //scale.set_scale(-471.497);// this value is obtained by calibrating the scale with known weights
 
   // reset the scale to 0
   scale.tare();       
 
   // timed delay
-  delay(3000);
   // clear lcd screen
   lcd.clear();
   // reset cursor
   lcd.setCursor(0,0);
   
   // printing the value of one reading
-  lcd.print("Scale is ready please place a weight");
+  lcd.print(" Scale is ready!");
+
   // time delay
   delay(2000);
 }
@@ -81,5 +84,5 @@ void loop() {
     }
    }
   // time delay
-  delay(1000);
+  delay(500);
 }
