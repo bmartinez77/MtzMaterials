@@ -10,21 +10,21 @@ YouTube link: https://www.youtube.com/watch?v=EDEwiAJ6Gdg
 ## Sample Code
 '''  
 
-  // for loop checking if a message has been sent
-   if (Serial.available() > 0) {
-    // read message
-      String message = Serial.readStringUntil('\n');
+    // for loop checking if a message has been sent
+     if (Serial.available() > 0) {
+      // read message
+        String message = Serial.readStringUntil('\n');
 
-      // if message is true
-      if(message == "on"){
-        // initialize json messafe
-        StaticJsonDocument<200> doc;
+        // if message is true
+        if(message == "on"){
+          // initialize json messafe
+          StaticJsonDocument<200> doc;
 
-        // set message value to weight of from scale
-        doc["value"] = scale.get_units();
-        // send message to serial port
-        serializeJson(doc, Serial);
-    }
+          // set message value to weight of from scale
+          doc["value"] = scale.get_units();
+          // send message to serial port
+          serializeJson(doc, Serial);
+      }
     
 '''
 
