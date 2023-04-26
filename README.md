@@ -19,6 +19,8 @@ The technologies that are implemented are Raspberry Pi, Arduino, Python(Flask, J
 | Arduin Uno R3 | | The Scale application is hosted on this device and will communicate to the Raspberry Pi. |
 | Arduin IDE | 1.8.19 | Used to program and test the arduino. |
 | Arduin Programming language |  | Arduino is based off of C/C++, the Arduino will use this language to run its processes |
+| GitHub |  | Used as repository to store code. This helped to develop code on laptop and download and test onto the Raspberri Pi.  |
+| VNC Viewer |  | Used to remote access to Raspberry Pi. Upload and download files, program and test Arduino and web application |
 
 
 The technologies to create this project are Raspberry Pi, Arduino, Python, and SQLite. All of these technologies were new to me, I wanted to make a project that used multiple devices that communicate with one another such as the Arduino and the Raspberry Pi. I wanted to implement a physical sensor that is used to be displayed on a web application, where the user can see the change in real time.
