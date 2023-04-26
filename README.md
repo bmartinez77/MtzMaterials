@@ -103,6 +103,9 @@ Once the power cable is plugged into the Pi, the Arduino will get power. This wi
 This is showing the weight of my headphones when it is placed onto the scale. The scale is not completely accurate since I replaced the 5kg load cell with one that is 20kg. It needs to be recalibrated. 
 ![IMG-4604](https://user-images.githubusercontent.com/91274130/234462382-3c438460-d4bd-488f-9f0b-eda2810a0d21.jpg)
 
+This is side view with the hole that were cut for the power and HDMI ports for the Pi.
+![IMG-4607](https://user-images.githubusercontent.com/91274130/234464132-b7172ca9-6962-43ef-ac0e-18f2025b00bc.jpg)
+
 
 ## Risks and Challenges
 One of the risks of this project was that the weight from the scale might have not been able to be sent to the Raspberry Pi through the Arduino. Having a web application is a large process that is running, and adding a sub-process that is used to access the weight from the scale seemed nearly impossible. A sub-process with Python (Flask) will only run before the web application has started. If it is running constantly, the web application will never start. The solution was to leave the design with adding a sub-process and instead use a timed request where the web application is constantly accessing the data from the scale. This is an easier design to manage and gives us the same result we need. 
