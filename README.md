@@ -6,94 +6,7 @@ With a shortage of truck drivers, there is a high demand for transporting cargo.
 
 ## Project Demo
 YouTube link: https://www.youtube.com/watch?v=EDEwiAJ6Gdg
-
-## Sample Code
-### Arduino Uno
-This Code is used on the Arduino to check if the request has been sent from the serial port. If it is, then it will send the response.
-
-    // for loop checking if a message has been sent
-    if (Serial.available() > 0) {
-        // read message
-        String message = Serial.readStringUntil('\n');
-
-        // if message is true
-        if(message == "on"){
-          // initialize json messafe
-          StaticJsonDocument<200> doc;
-
-          // set message value to weight of from scale
-          doc["value"] = scale.get_units();
-          // send message to serial port
-          serializeJson(doc, Serial);
-      }
-    
-### Raspberry Pi
-#### Ajax script used for partial page updates. 
-This used as the partial page update. It will be a timed request, calling the method that requests the data from the Arduino. The response will be sent to url /live-data. it will then update the text inside of the textbox.
-
-    <!-- Method to read the weight from live-data(), updates the text -->
-    <script type="text/javascript">
-
-        $(function () {
-            window.setInterval(function () {
-                loadData ( )
-            }, 2000)
-            function loadData() {
-                $.ajax({
-                    url: "/live-data",
-                    type: 'GET',
-                    cache : false ,
-                    dataType: "json",
-                    success: function (data) {
-                        console.log(data);
-                        $("#scale-sensor1").val(data)
-                        $("#scale-sensor").text(data)
-
-                    }
-                });
-            }
-        });
-
-    </script>
-    
-   
-#### Python method used to request data
-Sends a request message to the Arduino and waits for the response. The response is then displayed on a page. The request will be made with the ajax request.
-
-    # Method used to generate random number to be displayed
-    # Will be read from the Arduino Scale once implemented
-    @app.route('/live-data')
-    def live_data():
-        # clears memeory from serial port   
-        ser.reset_input_buffer()
-        # writes message to arduino
-        ser.write("on\n".encode('utf-8'))
-        # reads response from arduino 
-        data = 0
-        try:
-            data = ser.readline().decode('utf-8').rstrip()
-
-            # converst value to json format
-            data = json.loads(data)
-            # reads value from key
-            data = json.dumps(data["value"])
-            # converts to string to be displayed
-            data = str(data)
-        except json.JSONDecodeError:
-            data=0
-        except TypeError:
-            data = 0
-    
-
-    # Makes response number into json format
-    response = make_response(data)
-    response.content_type = 'application/json'
-
-    #submits number to page
-    return response
-    
-    
-
+        
 ## Technologies 
 The technologies that are implemented are Raspberry Pi, Arduino, Python(Flask, Jinja, SQLAlchemy), and SQLite. This project implements an MVC architecture.
 | Technology or Tool | Version | Justification |
@@ -197,6 +110,92 @@ This is showing the weight of my headphones when it is placed onto the scale. Th
 
 This is side view with the hole that were cut for the power and HDMI ports for the Pi.
 ![IMG-4607](https://user-images.githubusercontent.com/91274130/234464132-b7172ca9-6962-43ef-ac0e-18f2025b00bc.jpg)
+
+
+## Sample Code
+### Arduino Uno
+This Code is used on the Arduino to check if the request has been sent from the serial port. If it is, then it will send the response.
+
+    // for loop checking if a message has been sent
+    if (Serial.available() > 0) {
+        // read message
+        String message = Serial.readStringUntil('\n');
+
+        // if message is true
+        if(message == "on"){
+          // initialize json messafe
+          StaticJsonDocument<200> doc;
+
+          // set message value to weight of from scale
+          doc["value"] = scale.get_units();
+          // send message to serial port
+          serializeJson(doc, Serial);
+      }
+    
+### Raspberry Pi
+#### Ajax script used for partial page updates. 
+This used as the partial page update. It will be a timed request, calling the method that requests the data from the Arduino. The response will be sent to url /live-data. it will then update the text inside of the textbox.
+
+    <!-- Method to read the weight from live-data(), updates the text -->
+    <script type="text/javascript">
+
+        $(function () {
+            window.setInterval(function () {
+                loadData ( )
+            }, 2000)
+            function loadData() {
+                $.ajax({
+                    url: "/live-data",
+                    type: 'GET',
+                    cache : false ,
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        $("#scale-sensor1").val(data)
+                        $("#scale-sensor").text(data)
+
+                    }
+                });
+            }
+        });
+
+    </script>
+    
+   
+#### Python method used to request data
+Sends a request message to the Arduino and waits for the response. The response is then displayed on a page. The request will be made with the ajax request.
+
+    # Method used to generate random number to be displayed
+    # Will be read from the Arduino Scale once implemented
+    @app.route('/live-data')
+    def live_data():
+        # clears memeory from serial port   
+        ser.reset_input_buffer()
+        # writes message to arduino
+        ser.write("on\n".encode('utf-8'))
+        # reads response from arduino 
+        data = 0
+        try:
+            data = ser.readline().decode('utf-8').rstrip()
+
+            # converst value to json format
+            data = json.loads(data)
+            # reads value from key
+            data = json.dumps(data["value"])
+            # converts to string to be displayed
+            data = str(data)
+        except json.JSONDecodeError:
+            data=0
+        except TypeError:
+            data = 0
+    
+
+    # Makes response number into json format
+    response = make_response(data)
+    response.content_type = 'application/json'
+
+    #submits number to page
+    return response
 
 
 ## Risks and Challenges
