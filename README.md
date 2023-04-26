@@ -67,7 +67,7 @@ Once the schematic was created, I necided to build a circuit using it. This help
 A perf board was designed to fit inside of a #D printed box used to fit all of the components inside. The perfboard was built off of a breadboard prototype built from the circuit design.
 ![IMG_4487 HEIC](https://user-images.githubusercontent.com/91274130/234452461-1c86d9be-b1df-4012-8c1e-d991914d2c1d.png)
 
-This is the back side of the perfboard. It shows where all the wires are connected to specfic pins. This was built with the mapping diagram.
+This is the back side of the perfboard. It shows where all the wires are connected to specfic pins. This was built with the mapping diagram.  I decided to have a common power and ground to the perfboard. This allowed me to distribute power from the Arduino to the perfboard. Which connects to the LCD screen, and a resister used fro the brightness, as well distributing power to the HX711 module. As shown by the black (ground) and red (power) cables.
 ![IMG_4488 HEIC](https://user-images.githubusercontent.com/91274130/234452404-9ff9ad77-8e92-48be-867a-699aee171116.png)
 
 
@@ -80,7 +80,7 @@ Fitting the Perfboard into the scale box.
 # Final Build
 To start the final build, I connected the juper cables I made with 22 guage stranded wire. I measured then cut the wires to the length I neded for the distance from the perfboard to the Arduino Uno, and HX711 to Aduino. I used a crimping tool for both male and female dupont connectors and crimp pins. The pins were placed at the ends of the wire and crimped into place. Then the housings were slid into place. 
 Once the wires were made, I then plugged the wires into the LCD screen pins and glued them so they had more support from being disconnected. 
-then the LCD screen had to be placed in the holes. Then I super glued the fram of the LCD screen to the box and held it in place til the glue had dried. 
+then the LCD screen had to be placed in the holes. Then I used a hot glue gun to glue the frame of the LCD screen to the box and held it in place til the glue had dried. Then I connected the all the pins from the LCD screen, perfboard and HX711 module to the Arduino
 ![IMG-4598](https://user-images.githubusercontent.com/91274130/234456635-2c1b498a-b622-4d44-9d2f-dac62abdee49.jpg)
 
 
