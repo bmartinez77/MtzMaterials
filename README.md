@@ -121,6 +121,25 @@ Using a USB (Universal Serial Bus) cable, the two devices are able to send data 
 
 Storing all the components inside of the box was a callenge. The components did not fit properly. I had to reorganize the components multiple times to see whcih option was best. The final solution as to keep the LCD screen close to the Arduino and cut holes for the Raspberry Pi ports. This problem would have been minimized if not prevented if the layout was thought of before designing the box.
 
+
+## Sample Code
+'''  
+  // for loop checking if a message has been sent
+   if (Serial.available() > 0) {
+    // read message
+      String message = Serial.readStringUntil('\n');
+
+      // if message is true
+      if(message == "on"){
+        // initialize json messafe
+        StaticJsonDocument<200> doc;
+
+        // set message value to weight of from scale
+        doc["value"] = scale.get_units();
+        // send message to serial port
+        serializeJson(doc, Serial);
+    }
+'''
 ## Outstanding Issues
 One of the outstanding issues is that the web application does not calibrate the scale. The scale must be calibrated before it is used. There is a file that allows the scale to print the resistance value which is then used to calibrate it into a unit of measurement such as grams or pounds.
 
