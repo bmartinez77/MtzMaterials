@@ -42,6 +42,11 @@ The non-functional requirement implemented in this project is accuracy. This is 
 This is the physical solution that will be used for this project. It shows the circuit used for the Arduino that implments the HX711 module and loadcell sensor. The weight will be displayed on an LCD screen and a potentiometer will allow the back light to the screen to be adjusted. The Arduino is also connected to the Raspberry Pi using a USB cable. 
 ![physical solution](https://user-images.githubusercontent.com/91274130/234450371-d2f4d688-b35b-4dca-9fe9-bcd004c8319d.png)
 
+When an object is placed onto the load cell, the load cell will have a slight bend, sending an electrical signal to the HX711. The HX711 will then use that signal and convert it into a number for the Arduino to use. 
+<img width="553" alt="Screenshot 2023-03-26 at 6 11 01 PM" src="https://user-images.githubusercontent.com/91274130/234463078-8d469a4a-33b3-4134-aed6-7c5e4784b421.png">
+
+
+
 ## Logical Solution
 The logical design explains a high level over view of the project. There are two parts of the application, the web application is connected to the scale using UART protocol over a serial connection. The scale is a separate application working with a physical scale. The Web application will send a request to the Arduino. If it the request is exactly what the Arduino is checking for, it will send a response and reply with the weight to the web application. Where the web application will update the weight on the screen.
 ![logical design](https://user-images.githubusercontent.com/91274130/234450739-07b067cb-f575-4fbe-a02a-635f51547353.png)
@@ -49,6 +54,7 @@ The logical design explains a high level over view of the project. There are two
 ## User Interface Design / Sitemap
 User Interface and Site maps are used as a guide for the user to follow the layout and how to navigate through the pages within the web application.
 ![UI](https://user-images.githubusercontent.com/91274130/234450888-326a7b69-8c04-4662-88d4-6fa5aa883d7e.png)
+
 
 
 # Designing the circuit 
@@ -96,3 +102,16 @@ Once the power cable is plugged into the Pi, the Arduino will get power. This wi
 This is showing the weight of my headphones when it is placed onto the scale. The scale is not completely accurate since I replaced the 5kg load cell with one that is 20kg. It needs to be recalibrated. 
 ![IMG-4604](https://user-images.githubusercontent.com/91274130/234462382-3c438460-d4bd-488f-9f0b-eda2810a0d21.jpg)
 
+
+## Risks and Challenges
+One of the risks of this project was that the weight from the scale might have not been able to be sent to the Raspberry Pi through the Arduino. Having a web application is a large process that is running, and adding a sub-process that is used to access the weight from the scale seemed nearly impossible. A sub-process with Python (Flask) will only run before the web application has started. If it is running constantly, the web application will never start. The solution was to leave the design with adding a sub-process and instead use a timed request where the web application is constantly accessing the data from the scale. This is an easier design to manage and gives us the same result we need. 
+
+There were a few challenges, learning how the web application works, how the scale works, creating a circuit design from scratch with no previous experience, and connecting all the components to work together. One of the more technical challenges was managing the communication between the Raspberry Pi and Arduino. 
+
+Using a USB (Universal Serial Bus) cable, the two devices are able to send data back and forth. The issue is that there is a limit to how much data can be sent and stored. Whenever a message is sent, it will be stored in the buffer (a placeholder or slot of memory) and it will not be removed until one of the devices has read or removed it. The initial idea was to constantly send data from the Arduino. But this would fill the buffer and cause data to either leak or for data to be delayed and receive the wrong data. Especially if the Raspberry Pi is not reading the data at the same speed the data is being sent. The solution was for the Raspberry Pi to have a timed request. It will send a message to the Arduino requesting the data, and the Arduino will respond with the weight from the scale. This allows data to be sent when needed and prevents the buffer from overfilling and leaking data, or mistimed data from being sent
+
+
+## Outstanding Issues
+One of the outstanding issues is that the web application does not calibrate the scale. The scale must be calibrated before it is used. There is a file that allows the scale to print the resistance value which is then used to calibrate it into a unit of measurement such as grams or pounds.
+
+This project is not ready for production use, we are trying to emulate a scale house since this project does not include scale components for industrial use.
