@@ -11,6 +11,13 @@ The technologies that are implemented are Raspberry Pi, Arduino, Python(Flask, J
 | Raspberry PI 4 | Model B | Raspberry Pi is used to hosut the web application |
 | Raspberry Pi OS 64-bit | Debian Version: 11 | Since the application is running on a PI, a PI OS will be used to have a running system. | 
 | Python | Version: 3.9.9 | Web Application will be created using python. |
+| Flask | Version: 2.2.2 | This is the web framework |
+| Jinja | Version 3.1.2 | Jinja is the template engine used for web pages. | 
+| SQlAlchemy | Version 2.0.1 | SQlAlchemy is the relational mapper used to store objects in a database and on the web application. |
+| Flask-SQlAlchemy | Version 2.0.1 | Flask-SQlAlchemy is used to connect Flask and SQL Alchemy |
+| Visual Studio Code | Version 1.61.2 | VS Code is the development tool used to creat and test the web application to host on the Raspberry Pi. |
+| Arduin Uno R3 | | The Scale application is hosted on this device and will communicate to the Raspberry Pi. |
+
 
 The technologies to create this project are Raspberry Pi, Arduino, Python, and SQLite. All of these technologies were new to me, I wanted to make a project that used multiple devices that communicate with one another such as the Arduino and the Raspberry Pi. I wanted to implement a physical sensor that is used to be displayed on a web application, where the user can see the change in real time.
 
