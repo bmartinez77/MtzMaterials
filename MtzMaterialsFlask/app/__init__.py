@@ -2,7 +2,9 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_caching import Cache
+import logging
 
+logging.basicConfig(filename='logs.log', level=logging.DEBUG)
 app = Flask(__name__)
 # Conection String used for mysql
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:root@localhost:3306/mtz-materials'

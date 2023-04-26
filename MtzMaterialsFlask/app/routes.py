@@ -78,6 +78,10 @@ def index():
 def input_tare():
     # requests gross input from previous page, passes gross value
     gross = request.form['gross']
+
+    if float(gross) >= 5000:
+        message = "You are above the max weight: 5000, please try again"
+        return render_template("index.html", message = message)
     return render_template('inputTare.html', gross = gross)
 
 # Create Order Method, Returns Create Order page
@@ -205,11 +209,11 @@ def live_data():
     ser.reset_input_buffer()
     # writes message to arduino
     ser.write("on\n".encode('utf-8'))
-    
     # reads response from arduino 
-    data = ser.readline().decode('utf-8').rstrip()
- 
+    data = 0
     try:
+        data = ser.readline().decode('utf-8').rstrip()
+
         # converst value to json format
         data = json.loads(data)
         # reads value from key
@@ -220,6 +224,7 @@ def live_data():
         data=0
     except TypeError:
         data = 0
+    
 
     # Makes response number into json format
     response = make_response(data)

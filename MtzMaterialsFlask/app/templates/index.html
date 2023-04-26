@@ -12,7 +12,7 @@
     $(function () {
         window.setInterval(function () {
             loadData()
-        }, 2000)
+        }, 1000)
         function loadData() {
             $.ajax({
                 url: "/live-data",
@@ -33,7 +33,9 @@
 
 <!-- Container to display th Weight and buttons to create order or view all orders-->
 <section class="py-4 py-xl-5">
-
+    {% if message %}
+    <h2 class="text-center"> {{ message }}</h2>
+    {% endif %}
     <div class="container-fluid">
         <div class="text-center p-4 p-lg-5 weightBox">
             <form method="POST" action="{{url_for('input_tare')}}">
