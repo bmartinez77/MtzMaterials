@@ -63,7 +63,7 @@ Once the schematic was created, I necided to build a circuit using it. This help
 ![IMG-4596](https://user-images.githubusercontent.com/91274130/234454533-2c6d96b6-2f79-43f9-909b-516a94cb4dec.jpg)
 
 
-# Building the Project
+## Building the Project
 A perf board was designed to fit inside of a #D printed box used to fit all of the components inside. The perfboard was built off of a breadboard prototype built from the circuit design.
 ![IMG_4487 HEIC](https://user-images.githubusercontent.com/91274130/234452461-1c86d9be-b1df-4012-8c1e-d991914d2c1d.png)
 
@@ -76,5 +76,14 @@ This is the back side of the perfboard. It shows where all the wires are connect
 
 Fitting the Perfboard into the scale box.
 ![IMG_4490 HEIC](https://user-images.githubusercontent.com/91274130/234451736-1f764efc-95fa-4940-b8b9-5928b5cc389b.png)
+
+# Final Build
+To start the final build, I connected the juper cables I made with 22 guage stranded wire. I measured then cut the wires to the length I neded for the distance from the perfboard to the Arduino Uno, and HX711 to Aduino. I used a crimping tool for both male and female dupont connectors and crimp pins. The pins were placed at the ends of the wire and crimped into place. Then the housings were slid into place. 
+Once the wires were made, I then plugged the wires into the LCD screen pins and glued them so they had more support from being disconnected. 
+then the LCD screen had to be placed in the holes. Then I super glued the fram of the LCD screen to the box and held it in place til the glue had dried. 
+![IMG-4598](https://user-images.githubusercontent.com/91274130/234456635-2c1b498a-b622-4d44-9d2f-dac62abdee49.jpg)
+
+
+![IMG-4597](https://user-images.githubusercontent.com/91274130/234456584-79ebb44a-951b-44d9-88c5-158561b0df84.jpg)
 
 
