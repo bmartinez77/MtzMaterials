@@ -17,6 +17,8 @@ The technologies that are implemented are Raspberry Pi, Arduino, Python(Flask, J
 | Flask-SQlAlchemy | Version 2.0.1 | Flask-SQlAlchemy is used to connect Flask and SQL Alchemy |
 | Visual Studio Code | Version 1.61.2 | VS Code is the development tool used to creat and test the web application to host on the Raspberry Pi. |
 | Arduin Uno R3 | | The Scale application is hosted on this device and will communicate to the Raspberry Pi. |
+| Arduin IDE | 1.8.19 | Used to program and test the arduino. |
+| Arduin Programming language |  | Arduino is based off of C/C++, the Arduino will use this language to run its processes |
 
 
 The technologies to create this project are Raspberry Pi, Arduino, Python, and SQLite. All of these technologies were new to me, I wanted to make a project that used multiple devices that communicate with one another such as the Arduino and the Raspberry Pi. I wanted to implement a physical sensor that is used to be displayed on a web application, where the user can see the change in real time.
