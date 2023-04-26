@@ -8,11 +8,12 @@ With a shortage of truck drivers, there is a high demand for transporting cargo.
 YouTube link: https://www.youtube.com/watch?v=EDEwiAJ6Gdg
 
 ## Sample Code
-'''  
+### Arduino Uno
+This Code is used on the Arduino to check if the request has been sent from the serial port. If it is, then it will send the response.
 
     // for loop checking if a message has been sent
-     if (Serial.available() > 0) {
-      // read message
+    if (Serial.available() > 0) {
+        // read message
         String message = Serial.readStringUntil('\n');
 
         // if message is true
@@ -26,8 +27,31 @@ YouTube link: https://www.youtube.com/watch?v=EDEwiAJ6Gdg
           serializeJson(doc, Serial);
       }
     
-'''
+### Raspberry Pi
+    <!-- Method to read the weight from live-data(), updates the text -->
+    <script type="text/javascript">
 
+        $(function () {
+            window.setInterval(function () {
+                loadData ( )
+            }, 2000)
+            function loadData() {
+                $.ajax({
+                    url: "/live-data",
+                    type: 'GET',
+                    cache : false ,
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        $("#scale-sensor1").val(data)
+                        $("#scale-sensor").text(data)
+
+                    }
+                });
+            }
+        });
+
+    </script>
 
 ## Technologies 
 The technologies that are implemented are Raspberry Pi, Arduino, Python(Flask, Jinja, SQLAlchemy), and SQLite. This project implements an MVC architecture.
