@@ -40,3 +40,4 @@ The non-functional requirement implemented in this project is accuracy. This is 
 
 ## Physical Solution 
 This is the physical solution that will be used for this project. It shows the circuit used for the Arduino that implments the HX711 module and loadcell sensor. The weight will be displayed on an LCD screen and a potentiometer will allow the back light to the screen to be adjusted. The Arduino is also connected to the Raspberry Pi using a USB cable. 
+![physical solution](https://user-images.githubusercontent.com/91274130/234450371-d2f4d688-b35b-4dca-9fe9-bcd004c8319d.png)
