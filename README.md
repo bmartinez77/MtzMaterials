@@ -37,3 +37,6 @@ The non-functional requirement implemented in this project is accuracy. This is 
 | Features | Description |
 | ------------- | ------------- |
 | Accuracy | This feature is for the scales measuerments. We are trying to get +5% or -5% of the true weight of an object |
+
+## Physical Solution 
+This is the physical solution that will be used for this project. It shows the circuit used for the Arduino that implments the HX711 module and loadcell sensor. The weight will be displayed on an LCD screen and a potentiometer will allow the back light to the screen to be adjusted. The Arduino is also connected to the Raspberry Pi using a USB cable. 
