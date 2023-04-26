@@ -59,6 +59,7 @@ The logical design explains a high level over view of the project. There are two
 
 ## User Interface Design / Sitemap
 User Interface and Site maps are used as a guide for the user to follow the layout and how to navigate through the pages within the web application.
+
 ![UI](https://user-images.githubusercontent.com/91274130/234450888-326a7b69-8c04-4662-88d4-6fa5aa883d7e.png)
 
 
