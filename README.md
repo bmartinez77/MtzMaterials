@@ -78,7 +78,7 @@ This is the back side of the perfboard. It shows where all the wires are connect
 ![IMG_4488 HEIC](https://user-images.githubusercontent.com/91274130/234452404-9ff9ad77-8e92-48be-867a-699aee171116.png)
 
 
-3D printing a box to fit all the components inside. The LCD was measured to see if it is in place to be permanantly stored. 
+3D printing a box to fit all the components inside. The LCD was measured to see if it is in place to be permanantly stored. This box was designed with Fusino 360 Autodesk and printed using an Creality Ender 3D printer.
 ![IMG_4489 HEIC](https://user-images.githubusercontent.com/91274130/234452178-b11cf07b-9e72-4eee-9934-b4eac4462cc4.png)
 
 Fitting the Perfboard into the scale box and checking through the back if there is enough room inside to store the other componenets. 
@@ -111,8 +111,11 @@ There were a few challenges, learning how the web application works, how the sca
 
 Using a USB (Universal Serial Bus) cable, the two devices are able to send data back and forth. The issue is that there is a limit to how much data can be sent and stored. Whenever a message is sent, it will be stored in the buffer (a placeholder or slot of memory) and it will not be removed until one of the devices has read or removed it. The initial idea was to constantly send data from the Arduino. But this would fill the buffer and cause data to either leak or for data to be delayed and receive the wrong data. Especially if the Raspberry Pi is not reading the data at the same speed the data is being sent. The solution was for the Raspberry Pi to have a timed request. It will send a message to the Arduino requesting the data, and the Arduino will respond with the weight from the scale. This allows data to be sent when needed and prevents the buffer from overfilling and leaking data, or mistimed data from being sent
 
+Storing all the components inside of the box was a callenge. The components did not fit properly. I had to reorganize the components multiple times to see whcih option was best. The final solution as to keep the LCD screen close to the Arduino and cut holes for the Raspberry Pi ports. This problem would have been minimized if not prevented if the layout was thought of before designing the box.
 
 ## Outstanding Issues
 One of the outstanding issues is that the web application does not calibrate the scale. The scale must be calibrated before it is used. There is a file that allows the scale to print the resistance value which is then used to calibrate it into a unit of measurement such as grams or pounds.
 
 This project is not ready for production use, we are trying to emulate a scale house since this project does not include scale components for industrial use.
+
+Another issue is transporting the box. Many of the components will move which effect the calibration of the scale. There is a constant need to recalibrate the scale.
