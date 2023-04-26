@@ -64,26 +64,31 @@ Once the schematic was created, I necided to build a circuit using it. This help
 
 
 ## Building the Project
-A perf board was designed to fit inside of a #D printed box used to fit all of the components inside. The perfboard was built off of a breadboard prototype built from the circuit design.
+A perf board was designed to fit inside of a #D printed box used to fit all of the components inside. The perfboard was built off of a breadboard prototype built from the circuit design. This circuit was tested before it was placed into the box. 
 ![IMG_4487 HEIC](https://user-images.githubusercontent.com/91274130/234452461-1c86d9be-b1df-4012-8c1e-d991914d2c1d.png)
 
 This is the back side of the perfboard. It shows where all the wires are connected to specfic pins. This was built with the mapping diagram.  I decided to have a common power and ground to the perfboard. This allowed me to distribute power from the Arduino to the perfboard. Which connects to the LCD screen, and a resister used fro the brightness, as well distributing power to the HX711 module. As shown by the black (ground) and red (power) cables.
 ![IMG_4488 HEIC](https://user-images.githubusercontent.com/91274130/234452404-9ff9ad77-8e92-48be-867a-699aee171116.png)
 
 
-3D printing a box to fit all the components inside.
+3D printing a box to fit all the components inside. The LCD was measured to see if it is in place to be permanantly stored. 
 ![IMG_4489 HEIC](https://user-images.githubusercontent.com/91274130/234452178-b11cf07b-9e72-4eee-9934-b4eac4462cc4.png)
 
-Fitting the Perfboard into the scale box.
+Fitting the Perfboard into the scale box and checking through the back if there is enough room inside to store the other componenets. 
 ![IMG_4490 HEIC](https://user-images.githubusercontent.com/91274130/234451736-1f764efc-95fa-4940-b8b9-5928b5cc389b.png)
 
 # Final Build
-To start the final build, I connected the juper cables I made with 22 guage stranded wire. I measured then cut the wires to the length I neded for the distance from the perfboard to the Arduino Uno, and HX711 to Aduino. I used a crimping tool for both male and female dupont connectors and crimp pins. The pins were placed at the ends of the wire and crimped into place. Then the housings were slid into place. 
+To start the final build, I connected the jumper cables I made with 22 guage stranded wire. I measured then cut the wires to the length I neded for the distance from the perfboard to the Arduino Uno, and HX711 to Aduino. I used a crimping tool for both male and female dupont connectors and crimp pins. The pins were placed at the ends of the wire and crimped into place. Then the housings were slid into place. 
 Once the wires were made, I then plugged the wires into the LCD screen pins and glued them so they had more support from being disconnected. 
-then the LCD screen had to be placed in the holes. Then I used a hot glue gun to glue the frame of the LCD screen to the box and held it in place til the glue had dried. Then I connected the all the pins from the LCD screen, perfboard and HX711 module to the Arduino
+then the LCD screen had to be placed in the holes. Then I used a hot glue gun to glue the frame of the LCD screen to the box and held it in place til the glue had dried. Then I connected the all the pins from the LCD screen, perfboard and HX711 module to the Arduino. Before placing the Arduino I connected the USB cable in sice it would be difficult to plug it in while stored inside of the box. 
 ![IMG-4598](https://user-images.githubusercontent.com/91274130/234456635-2c1b498a-b622-4d44-9d2f-dac62abdee49.jpg)
 
-
+The USB cable was then connected to the Raspberry Pi to test the circuit before storing the Rasbperry Pi inside. A dremel was used to cut holes into the box for the Raspberry Pi to have both the power and HDMI ports a avilable. 
 ![IMG-4597](https://user-images.githubusercontent.com/91274130/234456584-79ebb44a-951b-44d9-88c5-158561b0df84.jpg)
 
 
+Both the Arduino and Rasbperry Pi had a 3D printed mount. The initial Idea was to hot glue the mount to be permanently stored inside. This is the full assemble before the power cables has been plugged into the Pi. 
+![IMG-4599](https://user-images.githubusercontent.com/91274130/234461542-f6461863-8275-4085-b80d-6904b11b97d6.jpg)
+
+Once the power cable is plugged into the Pi, the Arduino will get power. This will start the code. It will start with its calibration process and using the LCD screen it will let the user know that it is calibrating, then it will say that the scale is ready. Afterwards it will display the weight. 
+![IMG-4600](https://user-images.githubusercontent.com/91274130/234461684-0f85b854-4652-4305-930b-3b69167f8bd9.jpg)
