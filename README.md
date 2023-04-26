@@ -51,4 +51,17 @@ User Interface and Site maps are used as a guide for the user to follow the layo
 ![UI](https://user-images.githubusercontent.com/91274130/234450888-326a7b69-8c04-4662-88d4-6fa5aa883d7e.png)
 
 # Building the Project
+A perf board was designed to fit inside of a #D printed box used to fit all of the components inside. The perfboard was built off of a breadboard prototype built from the circuit design.
+![IMG_4487 HEIC](https://user-images.githubusercontent.com/91274130/234452461-1c86d9be-b1df-4012-8c1e-d991914d2c1d.png)
+
+This is the back side of the perfboard. It shows where all the wires are connected to specfic pins. This was built with the mapping diagram.
+![IMG_4488 HEIC](https://user-images.githubusercontent.com/91274130/234452404-9ff9ad77-8e92-48be-867a-699aee171116.png)
+
+
+3D printing a box to fit all the components inside.
+![IMG_4489 HEIC](https://user-images.githubusercontent.com/91274130/234452178-b11cf07b-9e72-4eee-9934-b4eac4462cc4.png)
+
+Fitting the Perfboard into the scale box.
+![IMG_4490 HEIC](https://user-images.githubusercontent.com/91274130/234451736-1f764efc-95fa-4940-b8b9-5928b5cc389b.png)
+
 
