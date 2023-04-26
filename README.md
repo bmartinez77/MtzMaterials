@@ -28,6 +28,9 @@ This Code is used on the Arduino to check if the request has been sent from the 
       }
     
 ### Raspberry Pi
+#### Ajax script used for partial page updates. 
+This used as the partial page update. It will be a timed request, calling the method that requests the data from the Arduino. The response will be sent to url /live-data. it will then update the text inside of the textbox.
+
     <!-- Method to read the weight from live-data(), updates the text -->
     <script type="text/javascript">
 
@@ -52,6 +55,44 @@ This Code is used on the Arduino to check if the request has been sent from the 
         });
 
     </script>
+    
+   
+#### Python method used to request data
+Sends a request message to the Arduino and waits for the response. The response is then displayed on a page. The request will be made with the ajax request.
+
+    # Method used to generate random number to be displayed
+    # Will be read from the Arduino Scale once implemented
+    @app.route('/live-data')
+    def live_data():
+        # clears memeory from serial port   
+        ser.reset_input_buffer()
+        # writes message to arduino
+        ser.write("on\n".encode('utf-8'))
+        # reads response from arduino 
+        data = 0
+        try:
+            data = ser.readline().decode('utf-8').rstrip()
+
+            # converst value to json format
+            data = json.loads(data)
+            # reads value from key
+            data = json.dumps(data["value"])
+            # converts to string to be displayed
+            data = str(data)
+        except json.JSONDecodeError:
+            data=0
+        except TypeError:
+            data = 0
+    
+
+    # Makes response number into json format
+    response = make_response(data)
+    response.content_type = 'application/json'
+
+    #submits number to page
+    return response
+    
+    
 
 ## Technologies 
 The technologies that are implemented are Raspberry Pi, Arduino, Python(Flask, Jinja, SQLAlchemy), and SQLite. This project implements an MVC architecture.
