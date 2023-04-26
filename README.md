@@ -92,3 +92,7 @@ Both the Arduino and Rasbperry Pi had a 3D printed mount. The initial Idea was t
 
 Once the power cable is plugged into the Pi, the Arduino will get power. This will start the code. It will start with its calibration process and using the LCD screen it will let the user know that it is calibrating, then it will say that the scale is ready. Afterwards it will display the weight. 
 ![IMG-4600](https://user-images.githubusercontent.com/91274130/234461684-0f85b854-4652-4305-930b-3b69167f8bd9.jpg)
+
+This is showing the weight of my headphones when it is placed onto the scale. The scale is not completely accurate since I replaced the 5kg load cell with one that is 20kg. It needs to be recalibrated. 
+![IMG-4604](https://user-images.githubusercontent.com/91274130/234462382-3c438460-d4bd-488f-9f0b-eda2810a0d21.jpg)
+
