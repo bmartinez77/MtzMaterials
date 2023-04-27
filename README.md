@@ -49,7 +49,7 @@ This is the physical solution that will be used for this project. It shows the c
 
 When an object is placed onto the load cell, the load cell will have a slight bend, sending an electrical signal to the HX711. The HX711 will then use that signal and convert it into a number for the Arduino to use. 
 
-<img width="553" alt="Screenshot 2023-03-26 at 6 11 01 PM" src="https://user-images.githubusercontent.com/91274130/234463078-8d469a4a-33b3-4134-aed6-7c5e4784b421.png">
+<img width="1053" alt="Screenshot 2023-03-26 at 6 11 01 PM" src="https://user-images.githubusercontent.com/91274130/234463078-8d469a4a-33b3-4134-aed6-7c5e4784b421.png">
 
 
 
