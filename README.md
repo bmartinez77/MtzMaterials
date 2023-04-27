@@ -55,6 +55,10 @@ When an object is placed onto the load cell, the load cell will have a slight be
 
 ## Logical Solution
 The logical design explains a high level over view of the project. There are two parts of the application, the web application is connected to the scale using UART protocol over a serial connection. The scale is a separate application working with a physical scale. The Web application will send a request to the Arduino. If it the request is exactly what the Arduino is checking for, it will send a response and reply with the weight to the web application. Where the web application will update the weight on the screen.
+<img width="338" alt="Screenshot 2023-04-26 at 5 39 19 PM" src="https://user-images.githubusercontent.com/91274130/234731137-a4f7e254-3a86-4dba-ba8f-79f2d11f94fd.png">
+
+
+Sitemap layout of how the data is requested and displayed on the home page
 ![logical design](https://user-images.githubusercontent.com/91274130/234450739-07b067cb-f575-4fbe-a02a-635f51547353.png)
 
 ## User Interface Design / Sitemap
