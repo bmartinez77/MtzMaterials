@@ -105,7 +105,7 @@ The USB cable was then connected to the Raspberry Pi to test the circuit before 
 ![IMG-4597](https://user-images.githubusercontent.com/91274130/234456584-79ebb44a-951b-44d9-88c5-158561b0df84.jpg)
 
 
-Both the Arduino and Rasbperry Pi had a 3D printed mount. The initial Idea was to hot glue the mount to be permanently stored inside. This is the full assemble before the power cables has been plugged into the Pi. 
+Both the Arduino and Raspberry Pi had a 3D printed mount. The initial Idea was to hot glue the mount to be permanently stored inside. This is the full assemble before the power cables has been plugged into the Pi. 
 ![IMG-4599](https://user-images.githubusercontent.com/91274130/234461542-f6461863-8275-4085-b80d-6904b11b97d6.jpg)
 
 Once the power cable is plugged into the Pi, the Arduino will get power. This will start the code. It will start with its calibration process and using the LCD screen it will let the user know that it is calibrating, then it will say that the scale is ready. Afterwards it will display the weight. 
