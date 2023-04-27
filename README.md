@@ -36,6 +36,7 @@ The high-level functional requirements are Creating, Reading, Updating, and Dele
 | Read Order | Users are able to view all the orders that have been created.   |
 | Update Order | Order information can be updated. The user can update the Truck ID, Name, Product, Gross weight and Tare Weight. The Net and Tons will be recalculated when the update has been confirmed  |
 | Delete Order | Selected orders can be deleted. These orders weill be removed from the database and cannot be recovered. |
+| Scale Reading | Scale is used to send weight to the web application. |
 
 ## Non-Functional Requirments
 The non-functional requirement implemented in this project is accuracy. This is used to check if the scale is accurate and consistent. The scale will be tested to read within +5% or -5% of the object's weight. If an object is 100 grams, then the accuracy will be tested to see if the scale is reading between 95 grams and 105 grams. 
